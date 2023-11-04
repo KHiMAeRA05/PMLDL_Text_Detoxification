@@ -1,0 +1,31 @@
+import torch
+from transformers import DistilBertTokenizer, DistilBertModel
+from sklearn.metrics.pairwise import cosine_similarity
+
+class TextSimilarityModel:
+    def __init__(self, model_name='distilbert-base-uncased'):
+        self.tokenizer = DistilBertTokenizer.from_pretrained(model_name)
+        self.model = DistilBertModel.from_pretrained(model_name)
+
+    def calculate_similarity(self, text1, text2):
+        input_ids = self.tokenizer(text1, text2, return_tensors='pt').input_ids
+        with torch.no_grad():
+            outputs = self.model(input_ids)
+            embeddings = outputs.last_hidden_state[:, 0, :]
+        return cosine_similarity(embeddings)
+
+    def predict(self, text1, text2):
+        similarity_score = self.calculate_similarity(text1, text2)[0][0]
+        return similarity_score
+
+# Example usage
+
+# # Create an instance of the TextSimilarityModel
+# similarity_model = TextSimilarityModel()
+
+# # Example usage
+# df = [["Reference text 1", "Translated text 1"],
+#       ["Reference text 2", "Translated text 2"]]
+
+# similarity_score = similarity_model.predict(df[0][0], df[0][1])
+# print(f'Reference: {df[0][0]},\nTranslation: {df[0][1]},\nSimilarity: {similarity_score}')
