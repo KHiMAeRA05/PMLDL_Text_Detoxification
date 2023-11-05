@@ -38,7 +38,7 @@ class TextSimilarityModel:
         similarity_score = self.calculate_similarity(text1, text2)[0][0]
         return similarity_score
 
-df_toxicity = pd.read_csv("\..\..\data\external\toxicity_en.csv")
+df_toxicity = pd.read_csv("../../data/external/toxicity_en.csv")
 df_toxicity = df_toxicity[df_toxicity['is_toxic'] == 'Toxic']
 
 
