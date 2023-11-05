@@ -1,0 +1,37 @@
+# Introduction
+This report provides an overview of the process and results of working on the text paraphrasing task using the **Seq2SeqTrainer** transformer model. The assumptions were verified, and experiments were conducted to improve the model's performance and reduce toxicity levels in the paraphrased texts.
+
+# Data Analysis
+The initial step involved an examination and analysis of the original data provided in the file **filtered.tsv**. 
+The analysis revealed discrepancies between this data and the predictions of the models **SkolkovoInstitute/roberta_toxicity_classifier** and **distilbert-base-uncased**, used for determining toxicity levels and text similarity. 
+These differences served as the starting point for further developments.
+
+# Model Specification
+For paraphrasing I used pre-trained Seq2Seq model **T5-small** fine-tuned with the **filtered.tsv** dataset.
+The **T5-small** model is a scaled-down version of the T5 model, which is known for its versatility in handling a wide range of NLP tasks. 
+It employs a text-to-text approach, meaning it frames all tasks as text-to-text transformations, allowing it to perform tasks like translation, summarization, and question answering, among others.
+
+Despite its smaller size compared to the original T5, the T5-small model retains much of the power and flexibility of its larger counterpart. 
+It is particularly useful in scenarios where computational resources are constrained but high-quality performance is still required.
+
+This model proved to be sufficiently pre-trained, requiring only one epoch of training.
+
+# Training Process
+The initial results of the model did not meet the requirements, as the toxicity level decreased by only 50%, and the score dispersion was significant. 
+To address this issue, preprocessing of the data from the **filtered.tsv** file was performed, resulting in an improvement in the model's quality.
+
+Additionally, data points were swapped where the toxicity level of the reference phrase was lower than that of the translates phrase. 
+This manipulation was necessary to ensure a more adequate training of the model.
+
+# Evaluation
+For model's performance evaluation models **SkolkovoInstitute/roberta_toxicity_classifier** and **distilbert-base-uncased** were choosen.
+I downloaded additional dataset **toxicity_en.csv** containing toxic messages, using fine-tuned **T5-small** model generated paraphrased texts after what scored level of toxicity and simularity of both texts. 
+Then using graphs and data visualization presented in the script **visualization.py**, a comparison was made between toxicity levels before and after applying the model.
+
+The most representative visualization is **box plot**:
+
+This clearly shows how much toxicity has fallen on average, but clearly displays the variation problem.
+On average, toxicity levels have dropped by 80%.
+# Results
+As a result of working on the text paraphrasing task using the Seq2SeqTrainer transformer model, improvements were achieved in toxicity levels and score dispersion. 
+The model was able to paraphrase text more accurately and appropriately, as evidenced by the analysis and visualization of the data.
