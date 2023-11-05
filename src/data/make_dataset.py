@@ -2,7 +2,7 @@
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
 from transformers import pipeline, DistilBertTokenizer, DistilBertModel, AutoTokenizer, AutoModelForSequenceClassification
-from tqdm import tqdm_notebook
+from tqdm import tqdm
 import torch
 from sklearn.metrics.pairwise import cosine_similarity
 
