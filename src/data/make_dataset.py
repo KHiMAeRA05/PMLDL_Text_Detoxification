@@ -1,6 +1,6 @@
 # Prepare dataset
 import pandas as pd
-df = pd.read_csv('/data/raw/filtered.tsv', sep='\t')
+df = pd.read_csv('../../data/raw/filtered.tsv', sep='\t')
 df = df.drop(columns=['Unnamed: 0'])
 mask = df['trn_tox'] > df['ref_tox']
 # Swap the values of reference and translation, and ref_tox and trn_tox where the condition is True
