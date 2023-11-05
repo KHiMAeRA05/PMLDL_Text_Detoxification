@@ -29,7 +29,7 @@ I downloaded an additional dataset **toxicity_en.csv** containing toxic messages
 Then using graphs and data visualization presented in the script **visualization.py**, a comparison was made between toxicity levels before and after applying the model.
 
 The most representative visualization is **box plot**:
-![alt text]([https://github.com/KHiMAeRA05/PMLDL_Text_Detoxification/edit/main/reports/figures/box-plot.jpg])
+![alt text](https://github.com/KHiMAeRA05/PMLDL_Text_Detoxification/blob/main/reports/figures/box-plot.jpg)
 
 This clearly shows how much toxicity has fallen on average, but clearly displays the variation problem.
 On average, toxicity levels have dropped by 80%.
