@@ -7,7 +7,7 @@ from transformers import AutoTokenizer, DataCollatorForSeq2Seq
 from transformers import AutoModelForSeq2SeqLM, Seq2SeqTrainingArguments, Seq2SeqTrainer
 
 # Prepare and tokenize dataset
-df = pd.read_csv('PMLDL_Text_Detoxification\data\interim\dataset.csv')
+df = pd.read_csv('..\..\data\interim\dataset.csv')
 
 dataset = Dataset.from_pandas(df).shuffle(seed=42)#.select(range(20000))
 dataset = dataset.train_test_split(test_size=0.2)

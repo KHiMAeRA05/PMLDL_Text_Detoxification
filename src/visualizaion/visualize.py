@@ -3,7 +3,7 @@ import seaborn as sns
 import pandas as pd
 import numpy as np
 
-df_generated_paraphrases = pd.read_csv('/data/interim/predicted.csv')
+df_generated_paraphrases = pd.read_csv('../../data/interim/predicted.csv')
 # Create a list of indices for the sentences
 indices = np.arange(10)
 

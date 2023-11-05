@@ -38,7 +38,7 @@ class TextSimilarityModel:
         similarity_score = self.calculate_similarity(text1, text2)[0][0]
         return similarity_score
 
-df_toxicity = pd.read_csv("data\external\toxicity_en.csv")
+df_toxicity = pd.read_csv("\..\..\data\external\toxicity_en.csv")
 df_toxicity = df_toxicity[df_toxicity['is_toxic'] == 'Toxic']
 
 
@@ -77,4 +77,4 @@ for output, sentence in tqdm_notebook(zip(outputs, texts), total=len(texts)):
 # Create a DataFrame
 df_generated_paraphrases = pd.DataFrame(generated_paraphrases)
 
-df_generated_paraphrases.to_csv('/data/interim/predicted.csv', index=False)  
+df_generated_paraphrases.to_csv('../../data/interim/predicted.csv', index=False)  
